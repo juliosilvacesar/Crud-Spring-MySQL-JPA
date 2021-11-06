@@ -49,25 +49,25 @@ public class ClienteController {
 
         return modelAndView;
     }
-
+    //action de cadastro de novo cliente
     @GetMapping("/cadastrar")
     public ModelAndView cadastrar() {
         ModelAndView modelAndView = new ModelAndView("cliente/cadastro");
 
-        modelAndView.addObject("cliente", new Cliente());
+        modelAndView.addObject("cliente", new Cliente());//criando uma nova instancia vazia de cliente para ser preenchida de acordo com os valores da view
 
         return modelAndView;
     }
-
+    //action que recebe os dados e então cadastra as informações no banco de dados e responde na pagina
     @PostMapping("/cadastrar")
     public ModelAndView cadastrar(Cliente cliente) {
         ModelAndView modelAndView = new ModelAndView("redirect:/cliente");
 
-        clienteRepository.save(cliente);
+        clienteRepository.save(cliente);//recebe uma entidade que vai ser salva no BD
 
         return modelAndView;
     }
-
+    //action editar
     @GetMapping("/{id}/editar")
     public ModelAndView editar(@PathVariable Long id) {
         ModelAndView modelAndView = new ModelAndView("cliente/edicao");
@@ -77,7 +77,7 @@ public class ClienteController {
 
         return modelAndView;
     }
-
+    //action editar que alterar os dados e retorna na pagina os valores alterados
     @PostMapping("/{id}/editar")
     public ModelAndView editar(Cliente cliente) {
         ModelAndView modelAndView = new ModelAndView("redirect:/cliente");

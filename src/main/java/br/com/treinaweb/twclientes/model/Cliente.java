@@ -25,7 +25,7 @@ public class Cliente {
 
     @Column(nullable = false, name = "data_nascimento")
     @DateTimeFormat(iso = ISO.DATE)
-    private LocalDate dataNascimento;
+    private LocalDate dataNascimento;//tipo de data que possui timezone
 
     @Column(nullable = false)
     private String profissao;
