@@ -1,0 +1,25 @@
+<nav th:fragment="nav" class="navbar navbar-light bg-light">
+    <div class="container-fluid">
+      <a class="navbar-brand" th:href="@{/}">Lista de Cliente</a>
+  
+      <form class="d-flex" method="GET">
+        <select class="form-select me-2" name="lang">
+          <option disabled>Selecione o idioma</option>
+          <option 
+            th:selected="${#locale.toString() == 'pt'}"
+            value="pt"
+          >
+            Português
+          </option>
+          <option 
+            th:selected="${#locale.toString() == 'en'}"
+            value="en"
+          >
+            Inglês
+          </option>
+        </select>
+  
+        <button class="btn btn-outline-success" type="submit">Ok</button>
+      </form>
+    </div>
+  </nav>

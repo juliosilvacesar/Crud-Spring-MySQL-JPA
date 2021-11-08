@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous"> -->
+  <link rel="stylesheet" th:href="@{/css/bootstrap.min.css}">
+
+  <!-- <title th:if="${cliente.id != null}">Spring Fundamentos - Editar Cliente'</title> 
+  <title th:if="${cliente.id == null}">Spring Fundamentos - Cadastrar novo Cliente</title> -->
+  <!--Operador ternario dentro do thymeleaf-->
+  <title
+    th:text="${cliente.id == null ? 'Spring Fundamentos - Cadastrar novo Cliente' : 'Spring Fundamentos - Editar Cliente'}">
+  </title>
+
+
+</head>
+
+<body>
+  <div th:replace="~{fragments/_navbar :: nav}"></div>
+
+  <main class="container">
+    <div class="row">
+      <div class="col-sm-12">
+        <!-- <h1 th:if="${cliente.id != null}">Editar Cliente</h1> 
+        <h1 th:if="${cliente.id == null}">Cadastrar novo Cliente</h1> -->
+        <!--Operador ternario dentro do thymeleaf-->
+        <h1 th:text="${cliente.id == null ? 'Cadastar novo Cliente' : 'Editar Cliente'}"></h1>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-sm-12">
+        <!--REQUISIÇÃO POST FEITA PRA CAMADA DE CONTROLLER -->
+        <form method="POST" th:object="${cliente}">
+          <!--  type="hidden" evitar que o id fique exporto ao usuário-->
+          <input type="hidden" th:field="*{id}">
+
+          <div class="mb-3">
+            <label for="nome" class="form-label">Nome</label>
+            <input type="text" class="form-control" id="nome" th:field="*{nome}">
+          </div>
+          <div class="mb-3">
+            <label for="dataNascimento" class="form-label">Data de Nascimento</label>
+            <input type="date" class="form-control" id="dataNascimento" th:field="*{dataNascimento}">
+          </div>
+          <div class="mb-3">
+            <label for="profissao" class="form-label">Profissão</label>
+            <input type="text" class="form-control" id="profissao" th:field="*{profissao}">
+          </div>
+
+          <button type="submit" class="btn btn-primary">Salvar</button>
+        </form>
+      </div>
+    </div>
+  </main>
+
+
+  <!-- <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/js/bootstrap.bundle.min.js" integrity="sha384-b5kHyXgcpbZJO/tY9Ul7kGkf1S0CWuKcCD38l8YkeH8z8QjE0GmW1gYU5S9FOnJ0" crossorigin="anonymous"></script> -->
+  <script th:src="@{/js/bootstrap.min.js}"></script>
+</body>
+
+</html>

@@ -52,7 +52,7 @@ public class ClienteController {
     //action de cadastro de novo cliente
     @GetMapping("/cadastrar")
     public ModelAndView cadastrar() {
-        ModelAndView modelAndView = new ModelAndView("cliente/cadastro");
+        ModelAndView modelAndView = new ModelAndView("cliente/formulario");
 
         modelAndView.addObject("cliente", new Cliente());//criando uma nova instancia vazia de cliente para ser preenchida de acordo com os valores da view
 
@@ -70,7 +70,7 @@ public class ClienteController {
     //action editar
     @GetMapping("/{id}/editar")
     public ModelAndView editar(@PathVariable Long id) {
-        ModelAndView modelAndView = new ModelAndView("cliente/edicao");
+        ModelAndView modelAndView = new ModelAndView("cliente/formulario");
 
         Cliente cliente = clienteRepository.getOne(id);
         modelAndView.addObject("cliente", cliente);
