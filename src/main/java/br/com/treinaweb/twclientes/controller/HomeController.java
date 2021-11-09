@@ -16,15 +16,15 @@ public class HomeController {
     // action home
     @GetMapping("/")
     public String home(ModelMap model) {
-        model.addAttribute("boasVindas", "Bem vindo ao curso de spring com Thymeleaf");
-
+        model.addAttribute("boasVindas", "Crud com springBoot com conceitos do Thymeleaf");
+        /*
         List<String> aulas = new ArrayList<>();
         aulas.add("Aula 01 - Introdução");
         aulas.add("Aula 02 - Template engines");
         aulas.add("Aula 03 - Arquivos estáticos");
         aulas.add("Aula 04 - Exibindo informações");
-
-        model.addAttribute("aulas", aulas);
+        model.addAttribute("aulas", aulas);*/
+        
         return "home";
     }
 

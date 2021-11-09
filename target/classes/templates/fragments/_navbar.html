@@ -1,6 +1,6 @@
 <nav th:fragment="nav" class="navbar navbar-light bg-light">
     <div class="container-fluid">
-      <a class="navbar-brand" th:href="@{/}">Lista de Cliente</a>
+      <a class="navbar-brand" th:href="@{/}">Crud clientes</a>
   
       <form class="d-flex" method="GET">
         <select class="form-select me-2" name="lang">
@@ -20,6 +20,12 @@
         </select>
   
         <button class="btn btn-outline-success" type="submit">Ok</button>
+        
       </form>
+      <div class="row">
+        <div class="col-sm-12">
+          <a th:href="@{/cliente}" class="btn btn-primary">Ir para lista de clientes</a>
+        </div>
+      </div>
     </div>
   </nav>

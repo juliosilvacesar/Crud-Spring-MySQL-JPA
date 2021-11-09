@@ -1,41 +1,26 @@
 <!DOCTYPE html>
-<html lang="pt-br">
+<html th:replace="~{layout :: layout(~{::title }, ~{::main})}">
 
 <head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-  <!-- <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous"> -->
-  <link rel="stylesheet" th:href="@{/css/bootstrap.min.css}">
-  <title>Spring Fundamentos - Detalhes do Cliente</title>
+  <title th:text="#{detalhar.title}"></title>
 </head>
-
 <body>
-  <nav class="navbar navbar-light bg-light">
-    <div class="container-fluid">
-      <a class="navbar-brand" href="#">Lista de Clientes</a>
-    </div>
-  </nav>
-
   <main class="container">
-    <div th:replace="~{fragments/_navbar :: nav}"></div>
-
+    <div class="row">
+      <div class="col-sm-12">
+        <h1 th:text="#{detalhar.header}"></h1>
+      </div>
+    </div>
     <div class="row">
       <div class="col-sm-12">
         <div class="card">
           <h5 class="card-header" th:text="${cliente.nome}"></h5>
           <div class="card-body">
-            <p>
-              Profissão: <span th:text="${cliente.profissao}"></span>
-            </p>
-            <p>
-              Data de Nascimento: <span th:text="${cliente.dataNascimento}"></span>
-            </p>
-
+            <p>Profissão: <span th:text="${cliente.profissao}"></span></p>
+            <p>Data de Nascimento: <span th:text="${cliente.dataNascimento}"></span></p>
             <div class="row">
               <div class="col-sm-12">
-                <a th:href="@{/cliente/cadastrar}" class="btn btn-primary">Cadastrar novo Cliente</a>
+                <a th:href="@{/cliente}" class="btn btn-primary" th:text="#{detalhar.botao.cadastro}"></a>
               </div>
             </div>
           </div>
@@ -43,10 +28,5 @@
       </div>
     </div>
   </main>
-
-
-  <!-- <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/js/bootstrap.bundle.min.js" integrity="sha384-b5kHyXgcpbZJO/tY9Ul7kGkf1S0CWuKcCD38l8YkeH8z8QjE0GmW1gYU5S9FOnJ0" crossorigin="anonymous"></script> -->
-  <script th:src="@{/js/bootstrap.min.js}"></script>
 </body>
-
 </html>
